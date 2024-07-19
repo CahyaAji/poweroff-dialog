@@ -10,6 +10,8 @@ function createWindow() {
     height: 200,
     resizable: false,
     maximizable: false,
+    minimizable: false,
+    alwaysOnTop: true,
     autoHideMenuBar: true,
     icon: path.join(__dirname, "src/assets/system-shutdown.png"),
     webPreferences: {
