@@ -33,8 +33,7 @@
         "deb"
       ],
       "maintainer": "CahyaAji",
-      "category": "Utility",
-      "icon": "src/assets"
+      "category": "Utility"
     }
   }
 }
