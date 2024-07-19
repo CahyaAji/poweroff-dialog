@@ -32,56 +32,69 @@ function createWindow() {
   });
 }
 
-app.whenReady().then(() => {
-  createWindow();
+const gotTheLock = app.requestSingleInstanceLock();
 
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on("second-instance", () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
     }
   });
-});
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
+  app.whenReady().then(() => {
+    createWindow();
 
-ipcMain.on("close-app", () => {
-  setTimeout(() => {
-    app.quit();
-  }, 30);
-});
-
-ipcMain.on("restart", () => {
-  setTimeout(() => {
-    exec("reboot", (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error: ${error.message}`);
-        return;
+    app.on("activate", () => {
+      if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
       }
-      if (stderr) {
-        console.error(`Stderr: ${stderr}`);
-        return;
-      }
-      console.log(`Stdout: ${stdout}`);
     });
-  }, 50);
-});
+  });
 
-ipcMain.on("shutdown", () => {
-  setTimeout(() => {
-    exec("poweroff", (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.error(`Stderr: ${stderr}`);
-        return;
-      }
-      console.log(`Stdout: ${stdout}`);
-    });
-  }, 50);
-});
+  app.on("window-all-closed", () => {
+    if (process.platform !== "darwin") {
+      app.quit();
+    }
+  });
+
+  ipcMain.on("close-app", () => {
+    setTimeout(() => {
+      app.quit();
+    }, 30);
+  });
+
+  ipcMain.on("restart", () => {
+    setTimeout(() => {
+      exec("reboot", (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.error(`Stderr: ${stderr}`);
+          return;
+        }
+        console.log(`Stdout: ${stdout}`);
+      });
+    }, 50);
+  });
+
+  ipcMain.on("shutdown", () => {
+    setTimeout(() => {
+      exec("poweroff", (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.error(`Stderr: ${stderr}`);
+          return;
+        }
+        console.log(`Stdout: ${stdout}`);
+      });
+    }, 50);
+  });
+}
