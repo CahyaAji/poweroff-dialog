@@ -1,0 +1,16 @@
+{
+  "name": "poweroff-dialog",
+  "version": "1.0.0",
+  "description": "Window dialog for power off system",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "CahyaAji",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.2.1",
+    "electron-builder": "^24.13.3"
+  }
+}
