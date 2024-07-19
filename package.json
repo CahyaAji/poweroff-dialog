@@ -12,5 +12,29 @@
   "devDependencies": {
     "electron": "^31.2.1",
     "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.ca.poweroff",
+    "productName": "Shutdown System",
+    "extraMetadata": {
+      "name": "Shutdown System",
+      "version": "1.0.0",
+      "description": "Windo dialog to shutdown system",
+      "maintainer": "scm"
+    },
+    "files": [
+      "src/**/*",
+      "main.js",
+      "preload.js",
+      "node_modules/**/*"
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "maintainer": "CahyaAji",
+      "category": "Utility",
+      "icon": "src/assets"
+    }
   }
 }
