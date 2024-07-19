@@ -1,8 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron/main");
 const path = require("node:path");
 const { exec } = require("child_process");
-const { error } = require("node:console");
-const { stdout, stderr } = require("node:process");
 
 let mainWindow;
 
@@ -10,6 +8,8 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 400,
     height: 200,
+    resizable: false,
+    maximizable: false,
     autoHideMenuBar: true,
     icon: path.join(__dirname, "src/assets/system-shutdown.png"),
     webPreferences: {
@@ -20,6 +20,10 @@ function createWindow() {
   });
 
   mainWindow.loadFile("src/index.html");
+
+  setTimeout(() => {
+    app.quit();
+  }, 60000);
 
   mainWindow.on("closed", function () {
     mainWindow = null;
