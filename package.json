@@ -15,11 +15,11 @@
   },
   "build": {
     "appId": "com.ca.poweroff",
-    "productName": "Shutdown System",
+    "productName": "Shutdown-Dialog",
     "extraMetadata": {
-      "name": "Shutdown System",
-      "version": "1.0.0",
-      "description": "Windo dialog to shutdown system",
+      "name": "Shutdown-Dialog",
+      "version": "1.0.1",
+      "description": "Window dialog to shutdown system",
       "maintainer": "scm"
     },
     "files": [
