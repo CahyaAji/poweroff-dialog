@@ -68,7 +68,7 @@ if (!gotTheLock) {
 
   ipcMain.on("restart", () => {
     setTimeout(() => {
-      exec("reboot", (error, stdout, stderr) => {
+      exec("/usr/local/bin/safe_restart.sh", (error, stdout, stderr) => {
         if (error) {
           console.error(`Error: ${error.message}`);
           return;
@@ -84,7 +84,7 @@ if (!gotTheLock) {
 
   ipcMain.on("shutdown", () => {
     setTimeout(() => {
-      exec("poweroff", (error, stdout, stderr) => {
+      exec("sudo /usr/local/bin/safe_shutdown.sh", (error, stdout, stderr) => {
         if (error) {
           console.error(`Error: ${error.message}`);
           return;
