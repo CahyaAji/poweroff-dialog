@@ -1,6 +1,6 @@
 {
   "name": "poweroff-dialog",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Window dialog for power off system",
   "main": "main.js",
   "scripts": {
@@ -14,11 +14,11 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.ca.poweroff",
-    "productName": "Shutdown-Dialog",
+    "appId": "com.scm.poweroff",
+    "productName": "Shutdown Dialog",
     "extraMetadata": {
-      "name": "Shutdown-Dialog",
-      "version": "1.0.4",
+      "name": "Shutdown Dialog",
+      "version": "1.0.5",
       "description": "Window dialog to shutdown system",
       "maintainer": "scm"
     },
