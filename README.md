@@ -21,4 +21,5 @@ sudo visudo
 your_username ALL=(ALL) NOPASSWD: /usr/local/bin/safe_shutdown.sh
 ```
 
-5. Install shutdown-dialog.deb
+5. lakukan hal yg sama utk fungsi restart
+6. Install shutdown-dialog.deb
