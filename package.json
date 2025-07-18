@@ -1,6 +1,6 @@
 {
   "name": "poweroff-dialog",
-  "version": "1.0.6",
+  "version": "1.0.1",
   "description": "Window dialog for power off system",
   "main": "main.js",
   "scripts": {
@@ -15,10 +15,10 @@
   },
   "build": {
     "appId": "com.scm.poweroff",
-    "productName": "Shutdown Dialog",
+    "productName": "Shutdown-Dialog",
     "extraMetadata": {
-      "name": "Shutdown Dialog",
-      "version": "1.0.6",
+      "name": "Shutdown-Dialog",
+      "version": "1.0.7",
       "description": "Window dialog to shutdown system",
       "maintainer": "scm"
     },
