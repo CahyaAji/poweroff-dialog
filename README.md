@@ -9,13 +9,13 @@ agar shutdown bisa aman, jangan lansung power off, tapi tambahkan file berikut.
 sudo chmod +x /usr/local/bin/safe_shutdown.sh
 ```
 
-3. Since safe_shutdown.sh uses sudo, you may need to allow your user to run it without a password:
+3. Karena safe_shutdown.sh menggunakan sudo, maka perlu ijinkan user utk run tanpa password:
 
 ```
 sudo visudo
 ```
 
-4. Add this line at the bottom:
+4. Tambahkan ke line paling bawah:
 
 ```
 your_username ALL=(ALL) NOPASSWD: /usr/local/bin/safe_shutdown.sh
